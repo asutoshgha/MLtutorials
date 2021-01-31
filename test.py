@@ -36,19 +36,23 @@ class graphx(GraphScene):
 
         x = [1, 2, 3]
         y = [1.2, 1.9, 3.2]
-
+        #set the animation for getting the axes
         self.setup_axes(animate=True)
-        points=[]
+        #get the slopeand intercept to fit the line
         slop,intr = self.get_slp_intr(x,y)
+        #this is a function of the line itself
         def func(z):
             return slop*z+intr
-        
+        #now use the function to draw a line between x=0 to x=3
         graph=self.get_graph(func,x_min=0,x_max=3)
 
-        
+        # add the given points to the 2d plane canvas
         for i in range(0,3):
             self.add(SmallDot(self.coords_to_point(x[i],y[i])))
+            
+        #play the drawing of the graph to be drawn
         self.play(ShowCreation(graph))
+        #wait for 2 seconds
         self.wait(2)
         
 
