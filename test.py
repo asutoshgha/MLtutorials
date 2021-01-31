@@ -2,7 +2,7 @@
 from manimlib.imports import *
 
 class graphx(GraphScene):
-
+    #this sets up the axis configurations
     CONFIG={
         "x_min":0,
         "x_max":4,
@@ -15,7 +15,7 @@ class graphx(GraphScene):
         "x_axis_label":"$x$",
         "y_axis_label":"$y$",
     }
-
+    #we can get the slope by looking at the data
     def get_slp_intr(self,x, y):
         n = len(x)
 
@@ -31,7 +31,7 @@ class graphx(GraphScene):
         slope = num/denom
         intercept = y_mean - slope*x_mean
         return slope, intercept
-
+    #the main graphing function
     def showfunction(self):
 
         x = [1, 2, 3]
@@ -42,26 +42,17 @@ class graphx(GraphScene):
         slop,intr = self.get_slp_intr(x,y)
         def func(z):
             return slop*z+intr
-        # point = Dot(self.coords_to_point(1,))
+        
         graph=self.get_graph(func,x_min=0,x_max=3)
 
-        #self.play(Write(text))
-        #self.wait(1)
-        #self.play(FadeOut(text))
-        #self.wait(2)
+        
         for i in range(0,3):
             self.add(SmallDot(self.coords_to_point(x[i],y[i])))
         self.play(ShowCreation(graph))
         self.wait(2)
-        #slop,intr = self.get_slp_intr(x,y)
-
-        # def func(z):
-        #     return slop*z+intr
-
-        # graph=self.get_graph(func,x_min=0,x_max=3)
+        
 
 
-
-
+    #the code execution starts from this place
     def construct(self):
         self.showfunction()
