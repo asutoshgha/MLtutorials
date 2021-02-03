@@ -10,6 +10,8 @@ class graphx(GraphScene):
         "y_max":4,
         "function_color" : RED ,
         "axes_color" : GREEN,
+        "x_tick_frequency": 0.25,
+        "y_tick_frequency": 0.5,
         "x_labeled_nums" :range(0,4,1),
         "y_labeled_nums" :range(0,4,1),
         "x_axis_label":"$x$",
