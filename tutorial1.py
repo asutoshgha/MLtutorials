@@ -29,3 +29,6 @@ ax.tick_params(axis='y', colors='white')
 ax.set_facecolor('xkcd:salmon')
 ax.set_facecolor((0, 0, 0))
 #end of decoration
+
+plt.plot(domain,b(domain))
+plt.plot(domain,b(domain),'go-')
